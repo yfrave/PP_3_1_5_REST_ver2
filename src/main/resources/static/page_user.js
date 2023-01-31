@@ -1,21 +1,35 @@
-const url = 'http://localhost:8080/api/userTest';
+const urlUser = '/api/userTest';
 
-const currentUser = fetch(url).then(response => response.json())
+const currentUser = fetch(urlUser).then(response => response.json())
 
+// Заполнение шапки
 currentUser.then(user => {
-    let roles = '';
-    user.roles.forEach(role => {
-        roles += ' '
-        roles += role.name
-    })
+        let roles = ''
+        user.roles.forEach(role => {
+            roles += ' '
+            roles += role.name
+        })
+        document.getElementById("navbar-email").innerHTML = user.email
+        document.getElementById("navbar-roles").innerHTML = roles
+    }
+)
 
-        let result = '';
+// Заполнение информации о пользователе
+currentUser.then(user => {
+        let roles = ''
+        user.roles.forEach(role => {
+            roles += ' '
+            roles += role.name
+        })
+
+        let result = ''
         result += `<tr>
                     <td>${user.id}</td>
                     <td>${user.username}</td>
                     <td>${user.lastname}</td>
                     <td>${user.email}</td>
-                    <td>${roles}</td>`
-        document.getElementById("tbody").innerHTML = result
+                    <td>${roles}</td>
+                   </tr>`
+        document.getElementById("user-info-table").innerHTML = result
     }
 )

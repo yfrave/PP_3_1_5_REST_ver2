@@ -13,9 +13,13 @@
 <!--Шапка-->
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1"
-              th:text = "${user.username} + '  with role:  ' + ${user.roles}">
-        </span>
+        <div>
+            <a class="navbar-brand">
+                <strong id="navbar-email" th:font="bold"></strong>
+                with roles:
+                <span id="navbar-roles"></span>
+            </a>
+        </div>
         <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
     </div>
 </nav>
@@ -46,7 +50,7 @@
                             <th>Roles</th>
                         </tr>
                         </thead>
-                        <tbody id = "tbody">
+                        <tbody id = "user-info-table">
                         </tbody>
                     </table>
                 </div>
