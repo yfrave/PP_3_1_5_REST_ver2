@@ -64,7 +64,7 @@ document.getElementById('newUserForm').addEventListener('submit', (e) => {
     let rolesAddUserValue = ''
     for (let i = 0; i < role.options.length; i++) {
         if (role.options[i].selected) {
-            rolesAddUser.push({id: role.options[i].value, name:role.options[i].innerHTML})
+            rolesAddUser.push({id: role.options[i].value, name: role.options[i].innerHTML})
             rolesAddUserValue += role.options[i].innerHTML + ' '
         }
     }
@@ -141,7 +141,7 @@ document.getElementById('edit_user_form').addEventListener('submit', (e) => {
             rolesUserEditValue += role.options[i].innerHTML + ' '
         }
     }
-    fetch('http://localhost:8080/api/admin/users/'+ idEdit.value, {
+    fetch(urlUsers + idEdit.value, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
